@@ -38,6 +38,9 @@ Set the route to use the callback you just created:
 
     devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
+If you aren't using Devise, you can either connect to the oauth server directly,
+or directly use omniauth: [https://github.com/intridea/omniauth](https://github.com/intridea/omniauth)
+
 ## Example
 
 For an example of this in use, check the wheeler board: [https://github.com/Tapjoy/wheeler_board](https://github.com/Tapjoy/wheeler_board)
