@@ -1,29 +1,43 @@
-# MystiqueClient
+# tapjoy_client
 
-TODO: Write a gem description
+This is an omniauth plugin that can be used to connect to Tapjoy.
 
-## Installation
+## Installation with Devise
+
+If you are using Devise, this is how you can use Tapjoy as your OAUTH provider.
 
 Add this line to your application's Gemfile:
 
-    gem 'mystique_client'
+    gem 'tapjoy_client'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Add this line to `config/intializers/devise.rb`:
 
-    $ gem install mystique_client
+    config.omniauth :tapjoy, 'TAPJOY_KEY', 'TAPJOY_SECRET'
 
-## Usage
+Add a callback controller to be run after the user is authenticated: `app/controllers/users/omniauth_callbacks_controller.rb`
 
-TODO: Write usage instructions here
+    class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+      def tapjoy
+        user = request.env["omniauth.auth"]["info"]
+        @user = User.find_or_initialize_by_email(user["email"].downcase)
+        @user.first_name = user["first_name"]
+        @user.last_name = user["last_name"]
+        @user.save!
 
-## Contributing
+        flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: "Tapjoy"
+        sign_in_and_redirect @user, :event => :authentication
+        finished('sign_up_text')
+      end
+    end
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Set the route to use the callback you just created:
+
+    devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
+## Example
+
+For an example of this in use, check the wheeler board: [https://github.com/Tapjoy/wheeler_board](https://github.com/Tapjoy/wheeler_board)
