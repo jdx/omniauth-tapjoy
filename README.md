@@ -1,4 +1,4 @@
-# tapjoy_client
+# omniauth-tapjoy
 
 This is an omniauth plugin that can be used to connect to Tapjoy.
 
@@ -9,7 +9,7 @@ If you are using Devise, this is how you can use Tapjoy as your OAUTH provider.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tapjoy_client'
+gem 'omniauth-tapjoy'
 ```
 
 And then execute:
