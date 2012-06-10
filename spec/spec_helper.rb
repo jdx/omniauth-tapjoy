@@ -7,6 +7,7 @@ require 'rack/test'
 require 'webmock/rspec'
 require 'omniauth'
 require 'omniauth/tapjoy'
+require 'omniauth/strategies/tapjoy'
 
 RSpec.configure do |config|
   config.include WebMock::API
