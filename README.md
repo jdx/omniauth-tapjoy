@@ -1,4 +1,6 @@
 # omniauth-tapjoy
+[![Build
+Status](https://secure.travis-ci.org/Tapjoy/omniauth-tapjoy.png)](http://travis-ci.org/Tapjoy/omniauth-tapjoy)
 
 This is an omniauth plugin that can be used to connect to Tapjoy.
 
