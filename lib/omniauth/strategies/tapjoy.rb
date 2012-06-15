@@ -6,7 +6,7 @@ module OmniAuth
       option :name, :tapjoy
 
       option :client_options, {
-        :site => "http://oauth.tapjoy.com",
+        :site => "https://oauth.tapjoy.com",
         :authorize_path => "/oauth/authorize"
       }
 

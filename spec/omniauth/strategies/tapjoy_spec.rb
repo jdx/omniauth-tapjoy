@@ -11,7 +11,7 @@ describe OmniAuth::Strategies::Tapjoy do
     end
 
     it 'should have correct site' do
-      subject.options.client_options.site.should eq('http://oauth.tapjoy.com')
+      subject.options.client_options.site.should eq('https://oauth.tapjoy.com')
     end
 
     it 'should have correct authorize url' do
