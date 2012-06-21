@@ -13,16 +13,7 @@ module OmniAuth
       uid { raw_info["id"] }
 
       info do
-        {
-          :id => raw_info["id"],
-          :email => raw_info["email"],
-          :first_name => raw_info["first_name"],
-          :last_name => raw_info["last_name"],
-          :name => "#{raw_info["first_name"]} #{raw_info["last_name"]}",
-          :created_at => raw_info["created_at"],
-          :facebook_id => raw_info["facebook_id"],
-          :is_employee => raw_info["is_employee"]
-        }
+        raw_info.to_hash
       end
 
       def raw_info
