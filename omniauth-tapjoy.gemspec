@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "omniauth/tapjoy"
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Jeff Dickey"]
@@ -14,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "omniauth-tapjoy"
   gem.require_paths = ["lib"]
-  gem.version       = OmniAuth::Tapjoy::VERSION
+  gem.version       = '1.4.2'
 
   gem.add_dependency 'omniauth', '~> 1.0'
   gem.add_runtime_dependency 'omniauth-oauth2'
